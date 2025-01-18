@@ -35,7 +35,7 @@ Steps
 Clone the repository:
 
 ```
-git clone https://github.com/yourusername/fastapi-chatbot.git
+git clone git clone https://github.com/yourusername/fastapi-chatbot.git
 cd fastapi-chatbot
 ```
 Create and activate a virtual environment:
