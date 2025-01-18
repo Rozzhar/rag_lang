@@ -3,7 +3,6 @@ from langchain_community.document_loaders import CSVLoader, PyPDFLoader, TextLoa
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from constants import OPENAI_KEY
 
 class Embedder:
     def __init__(self):
@@ -58,6 +57,6 @@ class Embedder:
                     )
             data = loader.load()
 
-        embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_KEY)
+        embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
 
         db  = Chroma.from_documents(data, embeddings, persist_directory=persist_directory)

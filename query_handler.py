@@ -3,13 +3,11 @@ from langchain.prompts import PromptTemplate
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 from prompts import blog_prompt, catalog_prompt, financial_prompt
-from constants import OPENAI_KEY
-
 
 class QueryHandler:
     def __init__(self):
-        self.llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=OPENAI_KEY, temperature=1)
-        self.embedding = OpenAIEmbeddings(openai_api_key=OPENAI_KEY)
+        self.llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=1)
+        self.embedding = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
     
     def load_vectorstore(self, persist_directory):
         db = Chroma(persist_directory=persist_directory, embedding_function=self.embedding)
