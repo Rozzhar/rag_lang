@@ -57,6 +57,6 @@ class Embedder:
                     )
             data = loader.load()
 
-        embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
+        embeddings = OpenAIEmbeddings(openai_api_key="your_openai_api_key")
 
         db  = Chroma.from_documents(data, embeddings, persist_directory=persist_directory)

@@ -6,8 +6,8 @@ from prompts import blog_prompt, catalog_prompt, financial_prompt
 
 class QueryHandler:
     def __init__(self):
-        self.llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=1)
-        self.embedding = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
+        self.llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key="your_openai_api_key", temperature=1)
+        self.embedding = OpenAIEmbeddings(openai_api_key="your_openai_api_key")
     
     def load_vectorstore(self, persist_directory):
         db = Chroma(persist_directory=persist_directory, embedding_function=self.embedding)
